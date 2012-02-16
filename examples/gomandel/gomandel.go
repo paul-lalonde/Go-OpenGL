@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/banthar/Go-SDL/sdl"
+	"github.com/paul-lalonde/Go-SDL/sdl"
 	"github.com/paul-lalonde/Go-OpenGL/gl"
 	"flag"
 	"runtime"
