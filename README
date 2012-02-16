@@ -1,3 +1,5 @@
+A fork of the OpenGL bindinds by banthar (github.com/banthar/Go-OpenGL)
+Moves the bindings to Go 1 structure, "go get"able.
 
 You will need GLEW(http://glew.sourceforge.net/) at least version 1.5.8.
 
