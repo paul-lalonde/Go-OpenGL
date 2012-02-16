@@ -7,8 +7,8 @@ package main
 */
 
 import (
-   "sdl"
-   "gl"
+   "github.com/banthar/Go-SDL/sdl"
+   "github.com/paul-lalonde/Go-OpenGL/gl"
    "math"
 )
 

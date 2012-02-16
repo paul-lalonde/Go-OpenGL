@@ -18,8 +18,8 @@ package main
 
 */
 
-import "sdl"
-import "gl"
+import "github.com/banthar/Go-SDL/sdl"
+import "github.com/paul-lalonde/Go-OpenGL/gl"
 import "math"
 import "flag"
 

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"sdl"
-	"gl"
+	"github.com/banthar/Go-SDL/sdl"
+	"github.com/paul-lalonde/Go-OpenGL/gl"
 	"flag"
 	"runtime"
 )
@@ -36,7 +36,7 @@ func uploadTexture_RGBA32(w, h int, data []byte) gl.Texture {
 	gl.TexParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
 	gl.TexParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
 	gl.TexParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_R, gl.CLAMP_TO_EDGE)
-	gl.TexImage2D(gl.TEXTURE_2D, 0, gl.RGBA, int(w), int(h), 0, gl.RGBA, data)
+	gl.TexImage2D(gl.TEXTURE_2D, 0, gl.RGBA, int(w), int(h), 0, gl.RGBA, gl.UNSIGNED_BYTE, data)
 
 	if gl.GetError() != gl.NO_ERROR {
 		id.Delete()
