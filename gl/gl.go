@@ -2472,3 +2472,22 @@ func GenFramebuffers(bufs []Framebuffer) {
 func Init() GLenum {
 	return GLenum(C.glewInit())
 }
+
+//void glTexImage3D (GLenum target, int level, int internalformat, int width, int height, int depth, int border, GLenum format, GLenum type, const GLvoid *pixels)
+func TexImage3D(target GLenum, level int, internalformat int, width int, height int, depth, border int, format, typ GLenum, pixels interface{}) {
+	if pixels == nil {
+		C.glTexImage3D(C.GLenum(target), C.GLint(level), C.GLint(internalformat),
+			C.GLsizei(width), C.GLsizei(height), C.GLsizei(depth), C.GLint(border), C.GLenum(format), C.GLenum(typ), nil)
+		return
+	}
+
+	_, p := GetGLenumType(pixels)
+	C.glTexImage3D(C.GLenum(target), C.GLint(level), C.GLint(internalformat),
+		C.GLsizei(width), C.GLsizei(height), C.GLsizei(depth), C.GLint(border), C.GLenum(format), C.GLenum(typ), p)
+}
+
+//void glTexSubImage3D (GLenum target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, GLenum format, GLenum type, const GLvoid *pixels)
+func TexSubImage3D(target GLenum, level int, xoffset int, yoffset int, zoffset int, width int, height int, depth int, format GLenum, pixels interface{}) {
+	t, p := GetGLenumType(pixels)
+	C.glTexSubImage3D(C.GLenum(target), C.GLint(level), C.GLint(xoffset), C.GLint(yoffset), C.GLint(zoffset), C.GLsizei(width), C.GLsizei(height), C.GLsizei(depth), C.GLenum(format), C.GLenum(t), p)
+}
